@@ -221,6 +221,7 @@ import ProcessCard from '~/components/ProcessCard.vue';
 import SkillCard from '~/components/SkillCard.vue';
 import WorkCard from '~/components/WorkCard.vue';
 
+// IMAGES
 import jobLoop from '@/assets/images/jobloop.webp';
 import userFinder from '@/assets/images/user-finder.webp';
 import tastyland from '@/assets/images/tastyland.webp';

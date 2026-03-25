@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="d-flex align-items-center justify-content-between">
         <h1>
-          Web Design & <span>Development</span>
+          Web <span>Development</span>
         </h1>
         <div class="phone-number">
           <i class="fas fa-phone-alt" />

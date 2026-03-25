@@ -91,10 +91,10 @@ const headerLinks = [
     name: 'Process',
     route: 'process'
   },
-  {
-    name: 'Blogs',
-    route: 'blogs'
-  },
+  // {
+  //   name: 'Blogs',
+  //   route: 'blogs'
+  // },
   {
     name: 'Contact',
     route: 'contact'
