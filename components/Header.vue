@@ -1,0 +1,369 @@
+<template>
+  <header class="header" :class="{header_fixed: scrollPosition > 0}">
+    <div class="container-fluid">
+      <nav>
+        <div class="logo">
+          <nuxt-link class="logo-link" to="/">
+            <div class="logo-prefix">
+              online
+            </div>Creative
+            <span>Agency</span>
+          </nuxt-link>
+        </div>
+        <ul v-show="desktopNav" class="header-list">
+          <li v-for="(link, index) in headerLinks" :key="index" class="header-list-item">
+            <nuxt-link class="header-list-link" :to="'/'+link.route">
+              {{ link.name }}
+            </nuxt-link>
+          </li>
+        </ul>
+        <div v-show="mobile" class="menu-icon" @click="toggleMobileNav">
+          <span>Menu</span>
+          <i
+            :class="mobileNav ? 'fas fa-times' : 'fas fa-bars'"
+          />
+        </div>
+        <transition name="slide-fade" class="mobile-nav">
+          <ul v-show="mobileNav" class="dropdown-nav">
+            <li v-for="(link, index) in headerLinks" :key="index" class="header-list-item">
+              <nuxt-link :to="'/'+link.route" @click.native="closeMenu()">
+                {{ link.name }}
+              </nuxt-link>
+            </li>
+          </ul>
+        </transition>
+      </nav>
+    </div>
+  </header>
+</template>
+
+<script setup>
+const desktopNav = ref(true)
+const scrollPosition = ref(null)
+const mobile = ref(null)
+const mobileNav = ref(null)
+const windowWidth = ref(null)
+
+const updateScroll = () => {
+  scrollPosition.value = window.scrollY
+}
+const toggleMobileNav = () => {
+  mobileNav.value = !mobileNav.value
+}
+const checkScreen = () => {
+  windowWidth.value = window.innerWidth
+  if (windowWidth.value <= 991) {
+    mobile.value = true
+    desktopNav.value = false
+  } else {
+    mobile.value = false
+    mobileNav.value = false
+    desktopNav.value = true
+  }
+}
+const closeMenu = () => {
+  mobileNav.value = false
+}
+
+onBeforeMount(() => {
+  window.addEventListener('resize', checkScreen)
+  checkScreen
+});
+updateScroll
+onMounted(() => {
+  window.addEventListener('scroll', updateScroll)
+})
+
+const headerLinks = [
+  {
+    name: 'Home',
+    route: ''
+  },
+  {
+    name: 'About',
+    route: 'about'
+  },
+  {
+    name: 'Works',
+    route: 'works'
+  },
+  {
+    name: 'Process',
+    route: 'process'
+  },
+  {
+    name: 'Blogs',
+    route: 'blogs'
+  },
+  {
+    name: 'Contact',
+    route: 'contact'
+  }
+]
+</script>
+
+<style>
+header {
+  width: 100%;
+  background-color: rgba(45, 25, 72, 1);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+    border-bottom: 1px solid #705096;
+}
+
+.header_fixed {
+  position: sticky;
+  top: 30px;
+  left: 0;
+  z-index: 3;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header-list {
+  margin-bottom: 0;
+}
+
+.logo {
+  z-index: 10;
+}
+
+.logo-link {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 1rem;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo-link:hover {
+  color: #fff;
+}
+
+.logo-link span {
+  color: #f33c7a;
+  font-size: 1.4rem;
+  margin-top: -0.4rem;
+  line-height: 1.6rem;
+}
+
+.logo-link .logo-prefix {
+  font-size: 0.6rem;
+  font-weight: 100;
+  margin-left: 40px;
+  margin-bottom: -5px;
+    -webkit-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
+
+.logo-link:hover > .logo-prefix {
+  margin-left: -40px;
+}
+
+.header-list-item:last-child {
+  position: relative;
+}
+
+.header-list-item:last-child::before {
+  content: 'New';
+  position: absolute;
+  top: -1rem;
+  right: 1rem;
+  background-color: #f33c7a;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: .4rem;
+  font-weight: bold;
+}
+
+.header-list-link {
+  padding: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  font-size: .9rem;
+  -webkit-transition: all .25s;
+  -o-transition: all .25s;
+  transition: all .25s;
+}
+
+.header-list-link.nuxt-link-exact-active.nuxt-link-active:before {
+  position: absolute;
+  content: "";
+  left: 1rem;
+  bottom: 10px;
+  width: 30%;
+  height: 4px;
+  background-color: #f33c7a;
+  z-index: 1;
+  margin: 0 auto;
+  -webkit-transition: all .25s ease-in;
+  -o-transition: all .25s ease-in;
+  transition: all .25s ease-in;
+}
+
+.header-list-link:hover {
+  color: #d8c9f5;
+}
+
+.header-list-link:hover::before {
+  position: absolute;
+  content: "";
+  left: 1rem;
+  bottom: 10px;
+  width: 50%;
+  height: 4px;
+  background-color: #f33c7a;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.header-list-link.router-link-exact-active.router-link-active::before {
+  position: absolute;
+  content: "";
+  left: 1rem;
+  bottom: 0;
+  width: 50%;
+  height: 4px;
+  background-color: #f33c7a;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.menu-icon {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.menu-icon span {
+  font-size: 1.2rem;
+  margin-right: .5rem;
+}
+
+.dropdown-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  max-width: 275px;
+  height: 100%;
+  background-color: #1b0c30;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+.dropdown-nav .header-list-item {
+  border-bottom: 1px solid #705096;
+}
+
+.dropdown-nav .header-list-item:first-child {
+    border-top: 1px solid #705096;
+}
+
+.dropdown-nav a {
+  color: #fff;
+  padding: 15px 15px 15px 30px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+.dropdown-nav a:hover, .dropdown-nav a:active, .dropdown-nav a:focus {
+  color: #f33c7a;
+}
+
+.slide-fade-enter-active {
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  -webkit-transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  -o-transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  -webkit-transform: translateX(-10px);
+      -ms-transform: translateX(-10px);
+          transform: translateX(-10px);
+  opacity: 0;
+}
+
+@media (max-width: 991px) {
+  .header-list-item:last-child::before {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 767px) {
+  .logo-link {
+    padding: 1rem 0;
+  }
+}
+</style>
