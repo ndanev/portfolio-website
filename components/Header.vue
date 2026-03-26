@@ -73,7 +73,7 @@ const closeMenu = () => {
 
 onBeforeMount(() => {
   window.addEventListener('resize', checkScreen)
-  checkScreen
+  checkScreen()
 });
 updateScroll
 onMounted(() => {
