@@ -75,7 +75,7 @@ onBeforeMount(() => {
   window.addEventListener('resize', checkScreen)
   checkScreen()
 });
-updateScroll
+
 onMounted(() => {
   window.addEventListener('scroll', updateScroll)
 })

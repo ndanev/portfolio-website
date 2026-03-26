@@ -117,41 +117,6 @@
         </div>
       </div>
     </section>
-    <section class="section section-blog">
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-md-6 text-center">
-            <h2 class="section-title">
-              <span>
-                {{ homeContent.blogsTitle }}
-              </span>
-            </h2>
-          </div>
-        </div>
-        <div class="row">
-          <div v-for="(article, index) in articles" :key="index" class="col-md-4">
-            <nuxt-link :to="{ name: 'blog-slug', params:{slug: article.slug}}" class="d-block blog-card mb-3 mb-md-0">
-              <img
-                :src="`@/assets/images/${article.image}`"
-                class="img-fluid"
-                :alt="article.title"
-                :title="article.title"
-                width="604"
-                height="350"
-              >
-              <div class="details">
-                <h3>
-                  {{ article.title }}
-                </h3>
-                <p>
-                  {{ article.desc.substring(0,120) }}...
-                </p>
-              </div>
-            </nuxt-link>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="section section-contact">
       <div class="container">
         <div class="row justify-content-center mb-5">
@@ -247,7 +212,6 @@ const homeContent = {
   worksTitle: 'Our Works',
   worksSubtitle: 'Browse through our completed projects to get an idea of what we can do for you.',
   processTitle: 'How I Work',
-  blogsTitle: 'Latest Blogs',
   contactTitle: 'Contact',
   contactSubtitle: 'If you have any question or you want to contact us, feel free to send us an email. We’re here to help you!',
   contactLabelTitle: 'Your Title',
@@ -420,55 +384,6 @@ const workProcess = [
 
 .section-process .section-title {
   margin-bottom: 2rem;
-}
-
-.section-blog {
-  background-color: #2d1948;
-}
-
-.blog-card {
-  position: relative;
-}
-
-.blog-card .details {
-  background: rgba(45, 25, 72, .6);
-  color: #fff;
-  padding: 1rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.blog-card .details:hover {
-  background: rgba(45, 25, 72, .8);
-  text-decoration: underline;
-}
-
-.blog-card .details h3 {
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-
-.blog-card img {
-  height: 350px;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 10px;
 }
 
 .section-contact {
