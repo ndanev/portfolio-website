@@ -12,7 +12,7 @@
               {{ homeContent.heroSubtitle }}
             </p>
             <div class="hero-button-wrapper animate-8">
-              <nuxt-link class="button button-primary d-inline-block me-3" to="/works">
+              <nuxt-link class="button button-primary d-inline-block me-3 mb-3 mb-md-0" to="/works">
                 {{ homeContent.heroProjectsButton }}
               </nuxt-link>
               <a class="button button-secondary d-inline-block" download href="../assets/files/Nemanja_Danev_CV.pdf">
