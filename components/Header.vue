@@ -5,9 +5,9 @@
         <div class="logo">
           <nuxt-link class="logo-link" to="/">
             <div class="logo-prefix">
-              online
-            </div>Creative
-            <span>Agency</span>
+              portfolio
+            </div>Nemanja
+            <span>Danev</span>
           </nuxt-link>
         </div>
         <ul v-show="desktopNav" class="header-list">
@@ -15,6 +15,9 @@
             <nuxt-link class="header-list-link" :to="'/'+link.route">
               {{ link.name }}
             </nuxt-link>
+          </li>
+          <li class="header-list-item">
+            <a href="../assets/files/Nemanja_Danev_CV.pdf" download class="header-list-link">Download CV</a>
           </li>
         </ul>
         <div v-show="mobile" class="menu-icon" @click="toggleMobileNav">
@@ -29,6 +32,9 @@
               <nuxt-link :to="'/'+link.route" @click.native="closeMenu()">
                 {{ link.name }}
               </nuxt-link>
+            </li>
+            <li class="header-list-item">
+               <a href="../assets/files/Nemanja_Danev_CV.pdf" download @click.native="closeMenu()">Download CV</a>
             </li>
           </ul>
         </transition>
@@ -91,10 +97,6 @@ const headerLinks = [
     name: 'Process',
     route: 'process'
   },
-  // {
-  //   name: 'Blogs',
-  //   route: 'blogs'
-  // },
   {
     name: 'Contact',
     route: 'contact'
@@ -153,7 +155,7 @@ header nav {
 }
 
 .logo-link {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
   padding: 1rem;
@@ -165,9 +167,6 @@ header nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .logo-link:hover {
@@ -176,23 +175,17 @@ header nav {
 
 .logo-link span {
   color: #f33c7a;
-  font-size: 1.4rem;
-  margin-top: -0.4rem;
+  margin-top: -0.5rem;
   line-height: 1.6rem;
 }
 
 .logo-link .logo-prefix {
   font-size: 0.6rem;
   font-weight: 100;
-  margin-left: 40px;
   margin-bottom: -5px;
     -webkit-transition: all .25s ease-in-out;
     -o-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
-}
-
-.logo-link:hover > .logo-prefix {
-  margin-left: -40px;
 }
 
 .header-list-item:last-child {
@@ -260,7 +253,7 @@ header nav {
   position: absolute;
   content: "";
   left: 1rem;
-  bottom: 0;
+  bottom: 10px;
   width: 50%;
   height: 4px;
   background-color: #f33c7a;

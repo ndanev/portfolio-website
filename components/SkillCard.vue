@@ -8,9 +8,6 @@
     <h3 class="skill-card-title mb-3">
       {{ title }}
     </h3>
-    <div class="skill-card-content">
-      {{ desc }}
-    </div>
   </article>
 </template>
 
@@ -21,10 +18,6 @@ const props = defineProps({
     required: true
   },
   image: {
-    type: String,
-    required: true
-  },
-  desc: {
     type: String,
     required: true
   }
@@ -92,32 +85,23 @@ const props = defineProps({
     transition: all .85s;
 }
 
-.skill-card-inner-progress img:hover {
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-}
-
-.skill-card-content {
-  font-size: .9rem;
-}
-
 @media (max-width: 767px) {
-    .skill-card-inner {
-        width: 100px;
-        height: 100px;
-    }
+  .skill-card-inner {
+    width: 100px;
+    height: 100px;
+  }
 
-    .skill-card {
-        margin-bottom: 1.4rem;
-    }
+  .skill-card {
+    margin-bottom: 1.4rem;
+  }
 
-    .skill-card-inner-progress {
-        border: 0;
-    }
+  .skill-card-inner-progress {
+    border: 0;
+  }
 
-    .skill-card-inner-progress img {
-        width: 100%;
-        height: 100%;
-    }
+  .skill-card-inner-progress img {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

@@ -2,7 +2,7 @@
   <article class="process-card">
     <div>
       <h3 class="process-card-title">
-        {{ title }} <i class="fas fa-long-arrow-alt-right" />
+        {{ title }}
       </h3>
       <div class="process-card-des">
         {{ desc }}
@@ -26,25 +26,27 @@ const props = defineProps({
 
 <style>
 .process-card {
-    color: #fff;
-    margin-bottom: 1rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  color: #fff;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
-.process-card-icon i {
-    font-size: 1.6rem;
+.process-card div {
+  text-align: center;
 }
 
 .process-card-title {
-    font-weight: bold;
-    font-size: 1.4rem;
-    color: #f33c7a;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #f33c7a;
 }
 
-.process-card-title .fas {
-    margin-left: 1rem;
-    color: #fff;
+.process-card-des {
+  font-size: 1.2rem;
 }
 </style>

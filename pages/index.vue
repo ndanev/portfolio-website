@@ -5,15 +5,18 @@
         <div class="row h-100">
           <div class="col-md-7 offset d-flex justify-content-center flex-column">
             <h2 class="hero-home-title animate-4">
-              Online <br> Creative
-              <span>Agency</span>
+              Hi, I’m Nemanja 👋 <br>
+              <span> Frontend Developer</span>
             </h2>
-            <p class="hero-lead mb-5 animate-6">
+            <p class="hero-lead mb-4 animate-6">
               {{ homeContent.heroSubtitle }}
             </p>
             <div class="hero-button-wrapper animate-8">
-              <a class="button button-primary" href="mailto:nemanja.danev.93@gmail.com">
-                {{ homeContent.heroButton }}
+              <nuxt-link class="button button-primary d-inline-block me-3" to="/works">
+                {{ homeContent.heroProjectsButton }}
+              </nuxt-link>
+              <a class="button button-secondary d-inline-block" download href="../assets/files/Nemanja_Danev_CV.pdf">
+                {{ homeContent.heroDownloadButton }}
               </a>
             </div>
           </div>
@@ -34,9 +37,9 @@
         <div class="row">
           <div class="col-md-6 d-flex flex-column justify-content-center">
             <h2 class="section-subtitle">
-              We are a
+              Turning complex ideas into
               <br>
-              <span>Creative Agency</span>
+              <span>Great User Experiences</span>
             </h2>
             <p class="section-lead">
               {{ homeContent.aboutContent }}
@@ -64,14 +67,11 @@
                 {{ homeContent.skillsTitle }}
               </span>
             </h2>
-            <p class="section-lead">
-              {{ homeContent.skillsSubtitle }}
-            </p>
           </div>
         </div>
         <div class="row">
-          <div v-for="(skill, index) in skills" :key="index" class="col-md-4">
-            <SkillCard :title="skill.title" :image="skill.image" :desc="skill.desc" />
+          <div v-for="(skill, index) in skills" :key="index" class="col-6 col-md-3">
+            <SkillCard :title="skill.title" :image="skill.image" />
           </div>
         </div>
       </div>
@@ -108,9 +108,6 @@
                 {{ homeContent.processTitle }}
               </span>
             </h2>
-            <p class="section-lead">
-              {{ homeContent.processSubtitle }}
-            </p>
           </div>
         </div>
         <div class="row">
@@ -230,21 +227,26 @@ import creativeAgency from '@/assets/images/creative-agency.webp';
 import html from '@/assets/images/html.jpg';
 import css from '@/assets/images/css.jpg';
 import javascript from '@/assets/images/javascript.jpg';
+import typescript from '@/assets/images/typescript.png';
 import vuejs from '@/assets/images/vuejs.jpg';
+import nuxt from '@/assets/images/nuxt.png';
+import react from '@/assets/images/react.png';
+import next from '@/assets/images/next.png';
+import angular from '@/assets/images/angular.png';
+import tailwind from '@/assets/images/tailwind.jpg';
 import bootstrap from '@/assets/images/bootstrap.jpg';
 import nodejs from '@/assets/images/nodejs-logo.webp';
 
 const homeContent = {
-  heroSubtitle: 'Looking for someone to realize your digital dreams? You’ve come to the right place!',
-  heroButton: 'Contact Us',
-  aboutTitle: 'About Us',
-  aboutContent: 'With a strong sense of aesthetic and an eye for pixel perfection, we pair with our clients to create the best versions of their design ideas. We offer elegant solutions and user experiences which enhance the online presence of a wide variety of businesses. Our team is ready for whatever it is your heart desires, willing to go the extra mile to create your perfect project.',
-  skillsTitle: 'Our Skills',
-  skillsSubtitle: 'With professionals in all areas of web development, rest assured that your projects will be completed and presented online with pixel-precision.',
+  heroSubtitle: 'Several years of experience building high-performance, production-ready applications, working with APIs, dashboards and modern frontend tools.',
+  heroDownloadButton: 'Download CV',
+  heroProjectsButton: 'Projects',
+  aboutTitle: 'About Me',
+  aboutContent: 'Over the past 5+ years, I’ve been building web applications with a strong focus on frontend architecture and user experience. Most of my work revolves around Vue.js and Nuxt, where I’ve developed scalable dashboards, integrations with APIs and complex UI systems. I care about writing clean and maintainable code, but also about delivering real value to users through smooth and intuitive interfaces. I’m always looking to improve and stay up to date with modern frontend practices.',
+  skillsTitle: 'Skills & Expertise',
   worksTitle: 'Our Works',
   worksSubtitle: 'Browse through our completed projects to get an idea of what we can do for you.',
-  processTitle: 'Work Process',
-  processSubtitle: 'Our clients peace of mind is our number one priority. We are a team and we will work together with you on every step of the way to bring your ideas to life.',
+  processTitle: 'How I Work',
   blogsTitle: 'Latest Blogs',
   contactTitle: 'Contact',
   contactSubtitle: 'If you have any question or you want to contact us, feel free to send us an email. We’re here to help you!',
@@ -261,33 +263,51 @@ const homeContent = {
 const skills = [
   {
     title: 'HTML',
-    image: html,
-    desc: 'The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.'
+    image: html
   },
   {
     title: 'CSS',
-    image: css,
-    desc: 'Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.'
+    image: css
   },
   {
-    title: 'JavaScript',
-    image: javascript,
-    desc: 'JavaScript often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.'
+    title: 'Javascript',
+    image: javascript
   },
   {
-    title: 'Vue.js',
-    image: vuejs,
-    desc: 'Vue.js (commonly referred to as Vue; pronounced /vjuː/, like "view") is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications.'
+    title: 'Typescript',
+    image: typescript
+  },
+  {
+    title: 'Vue',
+    image: vuejs
+  },
+  {
+    title: 'Nuxt',
+    image: nuxt
+  },
+  {
+    title: 'React',
+    image: react
+  },
+  {
+    title: 'Next',
+    image: next
+  },
+  {
+    title: 'Angular',
+    image: angular
   },
   {
     title: 'Bootstrap',
-    image: bootstrap,
-    desc: 'Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS- and (optionally) JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
+    image: bootstrap
   },
   {
-    title: 'Node.js',
-    image: nodejs,
-    desc: 'Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser. Node.js lets developers use JavaScript to write command line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the users web browser.'
+    title: 'Tailwind',
+    image: tailwind
+  },
+  {
+    title: 'Node (Express)',
+    image: nodejs
   }
 ]
 
@@ -317,33 +337,28 @@ const works = [
 const workProcess = [
   {
     id: 1,
-    title: 'Planning',
-    desc: 'A project plan is a series of formal documents that define the execution and control stages of a project. The plan includes considerations for risk management, resource management and communications, while also addressing scope, cost and schedule baselines.'
+    title: 'Requirements & Analysis',
+    desc: 'Understanding business needs and user goals'
   },
   {
     id: 2,
-    title: 'Designing',
-    desc: 'Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design; user interface design (UI design); authoring, including standardised code and proprietary software; user experience design (UX design); and search engine optimization.'
+    title: 'Architecture & Planning',
+    desc: 'Structuring scalable and maintainable solutions'
   },
   {
     id: 3,
     title: 'Development',
-    desc: 'Web development is the work involved in developing a website for the Internet (World Wide Web) or an intranet (a private network). Web development can range from developing a simple single static page of plain text to complex web applications, electronic businesses, and social network services.'
+    desc: 'Building features with clean, reusable code'
   },
   {
     id: 4,
-    title: 'Testing',
-    desc: 'Web testing is software testing that focuses on web applications. Complete testing of a web-based system before going live can help address issues before the system is revealed to the public. Issues may include the security of the web application, the basic functionality of the site, its accessibility to handicapped users and fully able users, its ability to adapt to the multitude of desktops, devices, and operating systems, as well as readiness for expected traffic and number of users and the ability to survive a massive spike in user traffic, both of which are related to load testing.'
+    title: 'Performance & UX',
+    desc: 'Optimizing speed and user experience'
   },
   {
     id: 5,
-    title: 'Deployment',
-    desc: 'Software deployment is all of the activities that make a software system available for use. The general deployment process consists of several interrelated activities with possible transitions between them. These activities can occur at the producer side or at the consumer side or both. Because every software system is unique, the precise processes or procedures within each activity can hardly be defined. Therefore, "deployment" should be interpreted as a general process that has to be customized according to specific requirements or characteristics.'
-  },
-  {
-    id: 6,
-    title: 'Maintenance',
-    desc: 'Maintenance in software engineering is the modification of a software product after delivery to correct faults, to improve performance or other attributes. A common perception of maintenance is that it merely involves fixing defects. The key software maintenance issues are both managerial and technical. Key management issues are: alignment with customer priorities, staffing, which organization does maintenance, estimating costs. Key technical issues are: limited understanding, impact analysis, testing, maintainability measurement.'
+    title: 'Testing & Delivery',
+    desc: 'Ensuring quality and production readiness'
   }
 ]
 </script>

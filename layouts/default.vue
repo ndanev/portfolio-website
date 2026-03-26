@@ -69,13 +69,15 @@ html {
 
 .section-subtitle {
   color: #fff;
-  font-size: 2.4rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
 
 .section-subtitle span {
   color: #f33c7a;
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 2.4rem;
 }
 
 .section-lead {
@@ -100,6 +102,18 @@ html {
 .button-primary:hover {
   color: #f33c7a;
   background-color: #fff;
+}
+
+.button-secondary {
+  background-color: #fff;
+  color: #f33c7a;
+  border: 0;
+  transition: all .25s;
+}
+
+.button-secondary:hover {
+  color: #fff;
+  background-color: #f33c7a;
 }
 
 .hero {
