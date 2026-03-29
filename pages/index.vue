@@ -12,7 +12,7 @@
               {{ homeContent.heroSubtitle }}
             </p>
             <div class="hero-button-wrapper animate-8">
-              <nuxt-link class="button button-primary d-inline-block me-3 mb-3 mb-md-0" to="/works">
+              <nuxt-link class="button button-primary d-inline-block me-3 mb-3 mb-md-0" to="#projects">
                 {{ homeContent.heroProjectsButton }}
               </nuxt-link>
               <a class="button button-secondary d-inline-block" download href="../assets/files/Nemanja_Danev_CV.pdf">
@@ -76,7 +76,7 @@
         </div>
       </div>
     </section>
-    <section class="section section-works">
+    <section class="section section-works" id="projects">
       <div class="container-fluid">
         <div class="row justify-content-center mb-5">
           <div class="col-md-4 text-center">
@@ -85,9 +85,6 @@
                 {{ homeContent.worksTitle }}
               </span>
             </h2>
-            <p class="section-lead">
-              {{ homeContent.worksSubtitle }}
-            </p>
           </div>
         </div>
         <div class="row justify-content-center">
@@ -187,7 +184,7 @@ import WorkCard from '~/components/WorkCard.vue';
 import jobLoop from '@/assets/images/jobloop.webp';
 import userFinder from '@/assets/images/user-finder.webp';
 import tastyland from '@/assets/images/tastyland.webp';
-import creativeAgency from '@/assets/images/creative-agency.webp';
+import mqttSportsScore from '@/assets/images/mqtt-sports-score.png';
 
 import html from '@/assets/images/html.jpg';
 import css from '@/assets/images/css.jpg';
@@ -209,8 +206,7 @@ const homeContent = {
   aboutTitle: 'About Me',
   aboutContent: 'Over the past 5+ years, I’ve been building web applications with a strong focus on frontend architecture and user experience. Most of my work revolves around Vue.js and Nuxt, where I’ve developed scalable dashboards, integrations with APIs and complex UI systems. I care about writing clean and maintainable code, but also about delivering real value to users through smooth and intuitive interfaces. I’m always looking to improve and stay up to date with modern frontend practices.',
   skillsTitle: 'Skills & Expertise',
-  worksTitle: 'Our Works',
-  worksSubtitle: 'Browse through our completed projects to get an idea of what we can do for you.',
+  worksTitle: 'Projects',
   processTitle: 'How I Work',
   contactTitle: 'Contact',
   contactSubtitle: 'If you have any question or you want to contact us, feel free to send us an email. We’re here to help you!',
@@ -278,23 +274,23 @@ const skills = [
 const works = [
   {
     id: 1,
+    workTitle: 'MQTT Sports Score',
+    img: mqttSportsScore
+  },
+  {
+    id: 2,
     workTitle: 'Job Loop',
     img: jobLoop
   },
   {
-    id: 2,
+    id: 3,
     workTitle: 'Github User Finder',
     img: userFinder
   },
   {
-    id: 3,
+    id: 4,
     workTitle: 'Natural Tasty',
     img: tastyland
-  },
-  {
-    id: 4,
-    workTitle: 'Creative Agency',
-    img: creativeAgency
   }
 ]
 
@@ -502,7 +498,7 @@ const workProcess = [
   }
 
   .hero-home-title {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
   }
 }
 </style>

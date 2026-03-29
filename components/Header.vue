@@ -86,20 +86,8 @@ const headerLinks = [
     route: ''
   },
   {
-    name: 'About',
-    route: 'about'
-  },
-  {
     name: 'Works',
     route: 'works'
-  },
-  {
-    name: 'Process',
-    route: 'process'
-  },
-  {
-    name: 'Contact',
-    route: 'contact'
   }
 ]
 </script>

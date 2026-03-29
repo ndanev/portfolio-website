@@ -44,6 +44,9 @@
                 <div v-if="project.githubLink" class="mb-1">
                   - <a :href="project.githubLink" class="project-link" target="_blank">Github Link <i class="fas fa-external-link-alt" /></a>
                 </div>
+                <div v-if="project.githubLink_2" class="mb-1">
+                  - <a :href="project.githubLink_2" class="project-link" target="_blank">Github Link - Backend <i class="fas fa-external-link-alt" /></a>
+                </div>
                 <div v-if="project.website">
                   - <a :href="project.website" class="project-link" target="_blank">Website <i class="fas fa-external-link-alt" /></a>
                 </div>
@@ -60,7 +63,7 @@
 import jobLoop from '@/assets/images/jobloop.webp';
 import userFinder from '@/assets/images/user-finder.webp';
 import tastyland from '@/assets/images/tastyland.webp';
-import creativeAgency from '@/assets/images/creative-agency.webp';
+import mqttSportsScore from '@/assets/images/mqtt-sports-score.png';
 
 const worksContent = {
   heroTitle: 'Portfolio',
@@ -71,6 +74,18 @@ const worksContent = {
 const projects = [
   {
     id: 1,
+    title: 'MQTT Sports Score',
+    subtitle: '(Online Real-Time Sports Score Update Systems)',
+    image: mqttSportsScore,
+    desc: "- Real-time sports (football, basketball ...) update system. Created an admin interface for uploading scores and match details, a viewer interface for watching live updates, and a backend that uses MQTT to broadcast changes instantly to every connected client.",
+    technologies: '- The technologies used include Vue, NodeJS (Express), MQTT portocol',
+    responsive: '- Full Responsive',
+    githubLink: 'https://github.com/ndanev/mqtt-sports-score-frontend',
+    githubLink_2: 'https://github.com/ndanev/mqtt-sports-score-backend',
+    website: '' //
+  },
+  {
+    id: 2,
     title: 'Job Loop',
     subtitle: '(Online Job Search Application)',
     image: jobLoop,
@@ -81,7 +96,7 @@ const projects = [
     website: ''
   },
   {
-    id: 2,
+    id: 3,
     title: 'Github User Finder',
     subtitle: '(Online GitHub User Finder Application)',
     image: userFinder,
@@ -92,7 +107,7 @@ const projects = [
     website: 'https://online-user-finder.netlify.app/'
   },
   {
-    id: 3,
+    id: 4,
     title: 'Tastyland',
     subtitle: '(Online Tastyland Website)',
     image: tastyland,
@@ -101,17 +116,6 @@ const projects = [
     responsive: '- Full Responsive',
     githubLink: 'https://github.com/ndanev/Tastyland-Website',
     website: 'https://tastyland-website.netlify.app/'
-  },
-  {
-    id: 4,
-    title: 'Online Creative Agency',
-    subtitle: '(Creative Agency Website – Personal Portfolio)',
-    image: creativeAgency,
-    desc: '- Created a website for a creative agency which serves as a presentation of my personal portfolio. Design template taken from a free PSD website.',
-    technologies: '- Technology used: HTML, CSS, Bootstrap, Javascript, Nuxt.js (Vue.js), Axios',
-    responsive: '- Full Responsive',
-    githubLink: 'https://github.com/ndanev/creative-agency',
-    website: 'https://online-agency.herokuapp.com/'
   }
 ]
 </script>
