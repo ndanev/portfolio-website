@@ -8,7 +8,7 @@
               {{ worksContent.heroTitle }}
             </h1>
             <p class="hero-lead">
-              {{ worksContent.heroSubtitle }} <span>{{ worksContent.heroSubtitleAddition }}</span>
+              <span>{{ worksContent.heroSubtitleAddition }}</span>
             </p>
           </div>
         </div>
@@ -60,10 +60,10 @@
 </template>
 
 <script setup>
-import jobLoop from '@/assets/images/jobloop.webp';
-import userFinder from '@/assets/images/user-finder.webp';
-import tastyland from '@/assets/images/tastyland.webp';
 import mqttSportsScore from '@/assets/images/mqtt-sports-score.png';
+import northPark from '@/assets/images/northpark.png';
+import phillipsPlace from '@/assets/images/phillips-place.png';
+import carVertu from '@/assets/images/auto_pregled.png';
 
 const worksContent = {
   heroTitle: 'Portfolio',
@@ -73,7 +73,43 @@ const worksContent = {
 
 const projects = [
   {
+    id: 0,
+    title: 'North Park Shopping Center',
+    subtitle: '(Online Real-Time Sports Score Update Systems)',
+    image: northPark,
+    desc: "- Real-time sports (football, basketball ...) update system. Created an admin interface for uploading scores and match details, a viewer interface for watching live updates, and a backend that uses MQTT to broadcast changes instantly to every connected client.",
+    technologies: '- The technologies used include Vue, NodeJS (Express), MQTT portocol',
+    responsive: '- Full Responsive',
+    githubLink: '',
+    githubLink_2: '',
+    website: 'https://northparkcenter.com/' //
+  },
+  {
     id: 1,
+    title: 'Phillips Place',
+    subtitle: '(Online Real-Time Sports Score Update Systems)',
+    image: phillipsPlace,
+    desc: "- Real-time sports (football, basketball ...) update system. Created an admin interface for uploading scores and match details, a viewer interface for watching live updates, and a backend that uses MQTT to broadcast changes instantly to every connected client.",
+    technologies: '- The technologies used include Vue, NodeJS (Express), MQTT portocol',
+    responsive: '- Full Responsive',
+    githubLink: '',
+    githubLink_2: '',
+    website: 'https://phillipsplacecharlotte.netlify.app/' //
+  },
+  {
+    id: 2,
+    title: 'Car Vertu',
+    subtitle: '(Online Real-Time Sports Score Update Systems)',
+    image: carVertu,
+    desc: "- Real-time sports (football, basketball ...) update system. Created an admin interface for uploading scores and match details, a viewer interface for watching live updates, and a backend that uses MQTT to broadcast changes instantly to every connected client.",
+    technologies: '- The technologies used include Vue, NodeJS (Express), MQTT portocol',
+    responsive: '- Full Responsive',
+    githubLink: 'https://github.com/ndanev/car-review',
+    githubLink_2: '',
+    website: 'https://auto-pregled.netlify.app/' //
+  },
+  {
+    id: 3,
     title: 'MQTT Sports Score',
     subtitle: '(Online Real-Time Sports Score Update Systems)',
     image: mqttSportsScore,
@@ -83,39 +119,6 @@ const projects = [
     githubLink: 'https://github.com/ndanev/mqtt-sports-score-frontend',
     githubLink_2: 'https://github.com/ndanev/mqtt-sports-score-backend',
     website: '' //
-  },
-  {
-    id: 2,
-    title: 'Job Loop',
-    subtitle: '(Online Job Search Application)',
-    image: jobLoop,
-    desc: '- Browsing for job opportunities can be done as a guest, with the ability to register if they wish to apply or to post their own job.',
-    technologies: '- The technologies used include HTML, CSS, Javascript, VueJS, NodeJS and MongoDB.',
-    responsive: '- Full Responsive',
-    githubLink: 'https://github.com/ndanev/JobLoop/',
-    website: ''
-  },
-  {
-    id: 3,
-    title: 'Github User Finder',
-    subtitle: '(Online GitHub User Finder Application)',
-    image: userFinder,
-    desc: '- Created an application that allows users to search for GitHub profiles, and allows them to view the profiles and repositories. Created by fetching the GitHub API.',
-    technologies: '- Technology used: HTML, CSS(SCSS), Javascript, Vue.js, Bootstrap, Axios',
-    responsive: '- Full Responsive',
-    githubLink: 'https://github.com/ndanev/user-finder',
-    website: 'https://online-user-finder.netlify.app/'
-  },
-  {
-    id: 4,
-    title: 'Tastyland',
-    subtitle: '(Online Tastyland Website)',
-    image: tastyland,
-    desc: '- Convert PSD file (Photoshop) to HTML, CSS and Javascript',
-    technologies: '- Technology used: HTML, CSS, Javascript, Bootstrap',
-    responsive: '- Full Responsive',
-    githubLink: 'https://github.com/ndanev/Tastyland-Website',
-    website: 'https://tastyland-website.netlify.app/'
   }
 ]
 </script>

@@ -6,16 +6,16 @@
           <div class="col-md-7 offset d-flex justify-content-center flex-column">
             <h2 class="hero-home-title animate-4">
               Hi, I’m Nemanja 👋 <br>
-              <span> Frontend Developer</span>
+              <span> Web Developer</span>
             </h2>
             <p class="hero-lead mb-4 animate-6">
               {{ homeContent.heroSubtitle }}
             </p>
             <div class="hero-button-wrapper animate-8">
-              <nuxt-link class="button button-primary d-inline-block me-3 mb-3 mb-md-0" to="#projects">
+              <nuxt-link class="button button-primary d-inline-block me-3 mb-3 mb-md-0" to="/works">
                 {{ homeContent.heroProjectsButton }}
               </nuxt-link>
-              <a class="button button-secondary d-inline-block" download href="../assets/files/Nemanja_Danev_CV.pdf">
+              <a class="button button-secondary d-inline-block" download :href="resume">
                 {{ homeContent.heroDownloadButton }}
               </a>
             </div>
@@ -181,10 +181,12 @@ import SkillCard from '~/components/SkillCard.vue';
 import WorkCard from '~/components/WorkCard.vue';
 
 // IMAGES
-import jobLoop from '@/assets/images/jobloop.webp';
-import userFinder from '@/assets/images/user-finder.webp';
-import tastyland from '@/assets/images/tastyland.webp';
 import mqttSportsScore from '@/assets/images/mqtt-sports-score.png';
+import northPark from '@/assets/images/northpark.png';
+import phillipsPlace from '@/assets/images/phillips-place.png';
+import carVertu from '@/assets/images/auto_pregled_2.png';
+
+import resume from '@/assets/files/Nemanja_Danev_Resume.pdf';
 
 import html from '@/assets/images/html.jpg';
 import css from '@/assets/images/css.jpg';
@@ -200,11 +202,11 @@ import bootstrap from '@/assets/images/bootstrap.jpg';
 import nodejs from '@/assets/images/nodejs-logo.webp';
 
 const homeContent = {
-  heroSubtitle: 'Several years of experience building high-performance, production-ready applications, working with APIs, dashboards and modern frontend tools.',
+  heroSubtitle: 'Several years of experience building high-performance, production-ready applications, working with APIs, dashboards and modern dev tools.',
   heroDownloadButton: 'Download CV',
   heroProjectsButton: 'Projects',
   aboutTitle: 'About Me',
-  aboutContent: 'Over the past 5+ years, I’ve been building web applications with a strong focus on frontend architecture and user experience. Most of my work revolves around Vue.js and Nuxt, where I’ve developed scalable dashboards, integrations with APIs and complex UI systems. I care about writing clean and maintainable code, but also about delivering real value to users through smooth and intuitive interfaces. I’m always looking to improve and stay up to date with modern frontend practices.',
+  aboutContent: 'Over the past several years, I’ve been building web applications with a strong focus on frontend architecture and user experience. Most of my work revolves around Vue.js and Nuxt, where I’ve developed scalable dashboards, integrations with APIs and complex UI systems. I care about writing clean and maintainable code, but also about delivering real value to users through smooth and intuitive interfaces. I’m always looking to improve and stay up to date with modern frontend practices.',
   skillsTitle: 'Skills & Expertise',
   worksTitle: 'Projects',
   processTitle: 'How I Work',
@@ -273,24 +275,24 @@ const skills = [
 
 const works = [
   {
+    id: 0,
+    workTitle: 'North Park Shopping Center',
+    img: northPark
+  },
+  {
     id: 1,
-    workTitle: 'MQTT Sports Score',
-    img: mqttSportsScore
+    workTitle: 'Phillips Place',
+    img: phillipsPlace
   },
   {
     id: 2,
-    workTitle: 'Job Loop',
-    img: jobLoop
+    workTitle: 'Car Vertu',
+    img: carVertu
   },
   {
     id: 3,
-    workTitle: 'Github User Finder',
-    img: userFinder
-  },
-  {
-    id: 4,
-    workTitle: 'Natural Tasty',
-    img: tastyland
+    workTitle: 'MQTT Sports Score',
+    img: mqttSportsScore
   }
 ]
 

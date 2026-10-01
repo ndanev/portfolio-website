@@ -17,7 +17,7 @@
             </nuxt-link>
           </li>
           <li class="header-list-item">
-            <a href="../assets/files/Nemanja_Danev_CV.pdf" download class="header-list-link">Download CV</a>
+            <a :href="resume" download class="header-list-link">Download CV</a>
           </li>
         </ul>
         <div v-show="mobile" class="menu-icon" @click="toggleMobileNav">
@@ -34,7 +34,7 @@
               </nuxt-link>
             </li>
             <li class="header-list-item">
-               <a href="../assets/files/Nemanja_Danev_CV.pdf" download @click.native="closeMenu()">Download CV</a>
+               <a download :href="resume" @click.native="closeMenu()">Download CV</a>
             </li>
           </ul>
         </transition>
@@ -44,6 +44,8 @@
 </template>
 
 <script setup>
+import resume from '@/assets/files/Nemanja_Danev_Resume.pdf';
+
 const desktopNav = ref(true)
 const scrollPosition = ref(null)
 const mobile = ref(null)
