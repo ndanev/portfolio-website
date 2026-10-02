@@ -286,7 +286,7 @@ const works = [
   },
   {
     id: 2,
-    workTitle: 'Car Vertu',
+    workTitle: 'Car Valut',
     img: carVertu
   },
   {
